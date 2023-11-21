@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UuidGenerator;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -29,7 +29,7 @@ public class OrderEntity {
     private TicketEntity ticket;
 
     @Column(name = "purchase_date")
-    private Date purchaseDate;
+    private LocalDateTime purchaseDate;
 
     @Column(name = "transaction_status")
     private String transactionStatus;
