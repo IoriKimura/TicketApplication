@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  postgresDB:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: "ticketdb"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "006493"
+      PGDATA: "postgresDB-data:/var/lib/postgresql/data"
+#   Первый порт локальный, второй внутри докера
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgresDB-data:/var/lib/postgresql/data
+
+volumes:
+  postgresDB-data:
