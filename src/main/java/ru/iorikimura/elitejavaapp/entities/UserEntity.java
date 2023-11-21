@@ -3,11 +3,11 @@ package ru.iorikimura.elitejavaapp.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UuidGenerator;
 import ru.iorikimura.elitejavaapp.enums.TypeReg;
 import ru.iorikimura.elitejavaapp.enums.UserRole;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
 
@@ -24,17 +24,11 @@ public class UserEntity {
     @UuidGenerator
     private UUID id;
 
-    @Column
+    @Column(name = "email")
     private String email;
 
-    @Column
+    @Column(name = "password")
     private String password;
-
-    @Enumerated(EnumType.STRING)
-    private UserRole role;
-
-    @Enumerated(EnumType.STRING)
-    private TypeReg regType;
 
     @Column(name = "first_name")
     private String firstName;
@@ -46,12 +40,17 @@ public class UserEntity {
     private Date birthDate;
 
     @Column(name = "registration_date")
-    private Date regDate;
+    private LocalDateTime regDate;
 
     @Column(name = "last_action")
-    private Date lastAction;
+    private LocalDateTime lastAction;
 
     @Column(name = "is_email_confirmed")
-    private Boolean isEmailConfirmed;
+    private boolean isEmailConfirmed;
 
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
+
+    @Enumerated(EnumType.STRING)
+    private TypeReg regType;
 }

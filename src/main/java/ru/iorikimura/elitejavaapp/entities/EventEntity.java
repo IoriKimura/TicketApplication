@@ -1,11 +1,14 @@
 package ru.iorikimura.elitejavaapp.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.*;
 import org.hibernate.annotations.UuidGenerator;
 
-import java.sql.Time;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.UUID;
 
 @Entity
@@ -25,10 +28,10 @@ public class EventEntity {
     private String eventName;
 
     @Column(name = "event_date")
-    private Date eventDate;
+    private LocalDate eventDate;
 
     @Column(name = "event_time")
-    private Time eventTime;
+    private LocalTime eventTime;
 
     @Column(name = "event_place")
     private String eventPlace;
@@ -37,6 +40,6 @@ public class EventEntity {
     private String eventMinAge;
 
     @Column(name = "is_active")
-    private Boolean isActive;
+    private boolean isActive;
 
 }

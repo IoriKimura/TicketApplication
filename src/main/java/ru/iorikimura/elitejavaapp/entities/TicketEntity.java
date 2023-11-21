@@ -2,11 +2,10 @@ package ru.iorikimura.elitejavaapp.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UuidGenerator;
 import ru.iorikimura.elitejavaapp.enums.TicketType;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -31,13 +30,12 @@ public class TicketEntity {
     @Enumerated(EnumType.STRING)
     private TicketType ticketType;
 
-    @Column
+    @Column(name = "ticket_price")
     private Integer price;
 
-    // В чём разница между Date SQL и Date Until
     @Column(name = "purchase_date")
-    private Date purchaseDate;
+    private LocalDateTime purchaseDate;
 
     @Column(name = "is_redeemed")
-    private Boolean isRedeemed;
+    private boolean isRedeemed;
 }
