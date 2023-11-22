@@ -1,6 +1,7 @@
 package ru.iorikimura.elitejavaapp.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import ru.iorikimura.elitejavaapp.entities.EventEntity;
@@ -13,11 +14,12 @@ import java.util.UUID;
 public interface EventRepository extends JpaRepository<EventEntity, UUID> {
     Optional<EventEntity> findByEventName(String eventName);
 
+    @Modifying
     @Query("""
             UPDATE EventEntity event
-            SET event.event_date = :eventDate,
-                event.event_time = :eventTime
-            WHERE event.event_name = :eventName
+            SET event.eventDate = :eventDate,
+                event.eventTime = :eventTime
+            WHERE event.eventName = :eventName
             """)
     void updateEventDateTime(LocalDate eventDate, LocalTime eventTime, String eventName);
 }
