@@ -7,6 +7,7 @@ import org.hibernate.annotations.UuidGenerator;
 import ru.iorikimura.elitejavaapp.enums.TypeReg;
 import ru.iorikimura.elitejavaapp.enums.UserRole;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
@@ -37,7 +38,7 @@ public class UserEntity {
     private String lastName;
 
     @Column(name = "birth_date")
-    private Date birthDate;
+    private LocalDate birthDate;
 
     @Column(name = "registration_date")
     private LocalDateTime regDate;

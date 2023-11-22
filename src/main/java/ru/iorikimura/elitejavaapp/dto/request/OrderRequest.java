@@ -10,7 +10,10 @@ import lombok.NoArgsConstructor;
 public class OrderRequest {
 
     private String email;
+
     private String eventName;
+
     private String ticketType;
+
     private int price;
 }
