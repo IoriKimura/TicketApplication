@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UuidGenerator;
+import ru.iorikimura.elitejavaapp.enums.PaymentStatus;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -31,6 +32,6 @@ public class OrderEntity {
     @Column(name = "purchase_date")
     private LocalDateTime purchaseDate;
 
-    @Column(name = "transaction_status")
-    private String transactionStatus;
+    @Enumerated(EnumType.STRING)
+    private PaymentStatus paymentStatus;
 }
