@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.iorikimura.elitejavaapp.dto.models.TokenModel;
 
 @Data
 @NoArgsConstructor
@@ -13,5 +14,5 @@ public class LoginResponse {
 
     private String email;
 
-    // private TokenModel token;
+    private TokenModel token;
 }
