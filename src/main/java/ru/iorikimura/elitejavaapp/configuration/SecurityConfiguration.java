@@ -17,7 +17,6 @@ import ru.iorikimura.elitejavaapp.services.security.filter.JwtFilter;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfiguration {
-// ToDo: Сделать JWTService, JWTFilter, UserDetails
 
     private final JwtFilter jwtFilter;
     @Bean
@@ -33,6 +32,8 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(config ->
                         config.requestMatchers("/v1/orders").authenticated()
                                 .requestMatchers(HttpMethod.POST, "/v1/auth/**").permitAll()
+                                .requestMatchers("/swagger-ui/**").permitAll()
+                                .requestMatchers("/v3/api-docs/**").permitAll()
                                 .requestMatchers("/static/**").permitAll()
                                 .anyRequest().authenticated()
                 )
