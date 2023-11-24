@@ -1,7 +1,7 @@
 package ru.iorikimura.elitejavaapp.controllers.v1;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
