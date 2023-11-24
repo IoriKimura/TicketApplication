@@ -14,4 +14,10 @@ public interface TicketRepository extends JpaRepository<TicketEntity, UUID> {
             ticket.owner.email = :email
             """)
     List<TicketEntity> findTicketsByEmail(String email);
+
+    @Query("""
+            SELECT ticket FROM TicketEntity ticket WHERE
+            ticket.owner.email = :email AND ticket.event.eventName = :eventName
+            """)
+    List<TicketEntity> findTicketsForEvent(String email, String eventName);
 }
